@@ -6,15 +6,16 @@
 /*   By: mamedeir <mamedeir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 15:11:29 by mamedeir          #+#    #+#             */
-/*   Updated: 2022/11/01 15:50:02 by mamedeir         ###   ########.fr       */
+/*   Updated: 2022/11/01 15:53:05 by mamedeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-unsigned int	print_char(int arg)
+int	ft_print_char(int c)
 {
-	return (write(1, &arg, 1));
+	write(1, &c, 1);
+	return (1);
 }
 //%c
 
