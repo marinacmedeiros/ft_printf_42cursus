@@ -6,7 +6,8 @@
 /*   By: mamedeir <mamedeir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 19:51:18 by mamedeir          #+#    #+#             */
-/*   Updated: 2022/10/27 19:51:18 by mamedeir         ###   ########.fr       */
+/*   Updated: 2022/11/01 15:32:42 by mamedeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"// não precisa aqui
