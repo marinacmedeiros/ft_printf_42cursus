@@ -6,20 +6,13 @@
 /*   By: mamedeir <mamedeir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 15:11:29 by mamedeir          #+#    #+#             */
-/*   Updated: 2022/11/01 15:53:05 by mamedeir         ###   ########.fr       */
+/*   Updated: 2022/11/04 16:49:49 by mamedeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_print_char(int c)
-{
-	write(1, &c, 1);
-	return (1);
-}
-//%c
-
-int	ft_print_string(char *str)
+int	ft_printstring(char *str)
 {
 	int	count;
 
@@ -35,7 +28,7 @@ int	ft_print_string(char *str)
 }
 //%s
 
-int	ft_print_decimal(int n)
+int	ft_printdecimal(int n)
 {
 	int		count;
 	char	c;
@@ -63,8 +56,59 @@ int	ft_print_decimal(int n)
 }
 //%d
 
-unsigned int	print_percent_sign(void)
+int	ft_printunsig(unsigned int n)
 {
-	return (write(1, "%", 1));
+	int		count;
+	char	c;
+
+	count = 0;
+	c = (n % 10) + '0';
+	if (n <= 9)
+	{
+		count += write(1, &c, 1);
+		return (count);
+	}
+	count += ft_printunsig(n / 10);
+	count += write(1, &c, 1);
+	return (count);
 }
-//% %
+//%u
+
+int	ft_printhex(unsigned long n, char c)
+{
+	char	*hex;
+	int		count;
+
+	count = 0;
+	if (c == 'x')
+		hex = ft_strdup("0123456789abcdef");
+	else
+		hex = ft_strdup("0123456789ABCDEF");
+	if (n < 16)
+	{
+		count += write(1, &hex[n % 16], 1);
+		free(hex);
+		return (count);
+	}
+	count += ft_printhex(n / 16, c);
+	count += write(1, &hex[n % 16], 1);
+	free(hex);
+	return (count);
+}
+//%X %x
+
+int	ft_printptr(unsigned long ptr)
+{
+	int	count;
+
+	count = 0;
+	if (!ptr)
+	{
+		count += write(1, "(nil)", 5);
+		return (count);
+	}
+	count += write(1, "0x", 2);
+	count += ft_printhex(ptr, 'x');
+	return (count);
+}
+//%p
