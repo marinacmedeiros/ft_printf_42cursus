@@ -6,7 +6,7 @@
 /*   By: mamedeir <mamedeir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 15:11:29 by mamedeir          #+#    #+#             */
-/*   Updated: 2022/11/04 16:49:49 by mamedeir         ###   ########.fr       */
+/*   Updated: 2022/11/04 17:17:01 by mamedeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	ft_printdecimal(int n)
 		count += write(1, &c, 1);
 		return (count);
 	}
-	count += ft_print_dec(n / 10);
+	count += ft_printdecimal(n / 10);
 	count += write(1, &c, 1);
 	return (count);
 }

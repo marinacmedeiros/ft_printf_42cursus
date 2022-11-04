@@ -6,7 +6,7 @@
 /*   By: mamedeir <mamedeir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 19:44:59 by mamedeir          #+#    #+#             */
-/*   Updated: 2022/11/04 16:49:27 by mamedeir         ###   ########.fr       */
+/*   Updated: 2022/11/04 17:16:05 by mamedeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	ft_print_flags(char flag, va_list args)
 	if (flag == 'c')
 		len += ft_printchar(va_arg(args, int));
 	if (flag == 's')
-		len += ft_printstr(va_arg(args, char *));
+		len += ft_printstring(va_arg(args, char *));
 	if (flag == 'p')
 		len += ft_printptr(va_arg(args, unsigned long));
 	if (flag == 'd' || flag == 'i')
@@ -30,7 +30,7 @@ int	ft_print_flags(char flag, va_list args)
 	if (flag == 'x' || flag == 'X')
 		len += ft_printhex(va_arg(args, unsigned int), flag);
 	if (flag == '%')
-		len += printchar('%');
+		len += ft_printchar('%');
 	return (len);
 }
 

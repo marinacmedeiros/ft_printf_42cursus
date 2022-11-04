@@ -6,7 +6,7 @@
 #    By: mamedeir <mamedeir@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/27 18:37:44 by mamedeir          #+#    #+#              #
-#    Updated: 2022/11/03 18:22:11 by mamedeir         ###   ########.fr        #
+#    Updated: 2022/11/04 17:13:32 by mamedeir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = libftprintf.a
 
 SRC = ft_printf.c ft_print_functions.c ft_printf_functions_2.c
 
-OBJ = $(SRC:%.c=%.o)
+OBJS = $(SRC:%.c=%.o)
 
 CFLAGS = -Wall -Wextra -Werror
 
@@ -34,7 +34,7 @@ fclean:	clean
 re:	fclean all
 
 %.o: %.c
-    cc $(FLAGS) -c $< -o $@
-    ar rcs $(NAME) $@
+	cc $(CFLAGS) -c $< -o $@
+	ar rcs $(NAME) $@
 
 .PHONY: all clean fclean re
