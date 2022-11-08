@@ -6,7 +6,7 @@
 /*   By: mamedeir <mamedeir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 19:44:59 by mamedeir          #+#    #+#             */
-/*   Updated: 2022/11/08 21:23:43 by mamedeir         ###   ########.fr       */
+/*   Updated: 2022/11/09 00:08:59 by mamedeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ int	ft_printf(const char *str, ...)
 	i = 0;
 	len = 0;
 	va_start(args, str);
+	if (!str)
+		return (0);
 	while (str[i])
 	{
 		if (str[i] != '%')
